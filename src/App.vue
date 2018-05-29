@@ -2,34 +2,34 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+    <h2>Players</h2>
+    <ul class="playerlist" v-if="posts && posts.length">
+      <li v-for="player in this.posts" v-bind:key="player.id" @click="populate(player.id)">
+        {{player.name}}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
-export default {
-  name: 'app',
-  data () {
+  export default {
+   name: 'app',
+    methods: {
+      populate: function() {
+        alert(JSON.stringify(this.posts));
+      }
+    },
+   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Soccer statistics',
+      // posts: {id:'',name:''}
+      posts: {},
+      errors: ''
     }
-  },
+   },
   created() {
-    axios.get(`http://jsonplaceholder.typicode.com/posts`)
+    axios.get('//localhost:3000/api/players')
       .then(response => {
         // JSON responses are automatically parsed.
         this.posts = response.data
@@ -47,11 +47,25 @@ export default {
     //   this.errors.push(e)
     // }
   }
-
 }
 </script>
 
 <style lang="scss">
+  ul.playerlist {
+    border: 1px solid darkgrey;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    overflow-y: auto;
+    >li {
+      line-height: 1.5;
+      cursor:pointer;
+      &:hover {
+        color: blue;
+        font-weight: 600;
+      }
+    }
+  }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -71,7 +85,7 @@ ul {
 }
 
 li {
-  display: inline-block;
+  /*display: inline-block;*/
   margin: 0 10px;
 }
 

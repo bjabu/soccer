@@ -1,6 +1,12 @@
-# soccer
+# soccer app
 
-> For Prisjakt from Bjarne!
+> A simple setup of a backend server setup in node.js serving soccer data from a local csv-file to a single page frontend app in Vue. The server provides a REST API allowing for:
+
+
+* 
+*
+*
+ 
 
 ## Build Setup
 
