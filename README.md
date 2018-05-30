@@ -25,5 +25,5 @@ npm run build
 
 ### Comments
 * I did choose **Vue** as it is convenient for small seetups and I have a decent knowledge.
-* Initial comments mentioned porting server to Java. I did choose to see that as a typo and kept **node.js** as it would at least have taken me a workday. I have not been close to Java coding for fifteen years (though I use the IntelliJ editor).
+* I did not port server to Java. I have not been been doing Java coding for fifteen years (though I use the IntelliJ editor) I kept **node.js** as it would at least have taken me a workday.
 * **Limitations:**  No decent error handling. No test setup. The player windows could have been components.

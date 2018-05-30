@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/logo.jpeg">
     <h1>{{ msg }}</h1>
     <h2>Players</h2>
     <div class="container">
